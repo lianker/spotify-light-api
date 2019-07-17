@@ -4,7 +4,7 @@
   "description": "a simple lib to wrapper spotify api",
   "main": "src/index.js",
   "scripts": {
-    "prepush": "npm run lint && npm run test",
+    "prepush": "npm run lint && npm run test:coverage",
     "clear": "rimraf lib",
     "create-lib": "./node_modules/.bin/babel --out-dir lib src --verbose",
     "create-lib:watch": "npm run create-lib -- --watch",
