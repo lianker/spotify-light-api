@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Spotify Wrapper Test</title>
+  </head>
+  <body>
+    <div id="albums"></div>
+
+    <script src="../dist/spotify-wrapper.umd.min.js"></script>
+    <script>
+      const spotify = new SpotifyWrapper({
+        token:
+          'BQB0FpXd9zl0XnC0fYQW1G26eSCUQOXzCgu4VpWC_-0Gw3bvHGCSakC3Q9r0E73xvbZNbBFrCgYk1qy9qhbSlT568X00GOxeKBCKUDWvjVrJ577KQSMgUo_PvNhfQ3uWl6eLt0yqJ1cMrw'
+      })
+
+      const albums = spotify.search.albums('mr. big')
+      const albumsEl = document.getElementById('albums')
+
+      albums.then(data => {
+        markup = data.albums.items
+          .map(item => `<img src='${item.images[0].url}' alt='${item.name}' />`)
+          .join('')
+
+        albumsEl.innerHTML = markup
+      })
+    </script>
+  </body>
+</html>

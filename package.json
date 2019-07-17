@@ -1,0 +1,58 @@
+{
+  "name": "spotify-wrapper",
+  "version": "1.0.0",
+  "description": "a simple lib to wrapper spotify api",
+  "main": "src/index.js",
+  "scripts": {
+    "prepush": "npm run lint && npm run test",
+    "clear": "rimraf lib",
+    "create-lib": "./node_modules/.bin/babel --out-dir lib src --verbose",
+    "create-lib:watch": "npm run create-lib -- --watch",
+    "build": "npm run clear && npm run create-lib",
+    "build:umd": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.js",
+    "build:umd:min": "./node_modules/.bin/webpack --output-filename spotify-wrapper.umd.min.js -p",
+    "build:all": "npm run build && npm run build:umd && npm run build:umd:min",
+    "lint": "./node_modules/.bin/eslint src/*.js",
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require @babel/register",
+    "test:tdd": "npm run test -- --watch",
+    "test:coverage": "nyc npm test"
+  },
+  "nyc": {
+    "functions": 80,
+    "lines": 80,
+    "check-coverage": true,
+    "reporter": [
+      "text",
+      "html"
+    ],
+    "exclude": [
+      "test/**"
+    ]
+  },
+  "author": "Lianker Lopes <lianker.dev@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.5.0",
+    "@babel/core": "^7.5.4",
+    "@babel/node": "^7.5.0",
+    "@babel/preset-env": "^7.5.4",
+    "@babel/register": "^7.4.4",
+    "babel-loader": "^8.0.6",
+    "chai": "^4.2.0",
+    "eslint": "^6.0.1",
+    "eslint-config-standard": "^13.0.1",
+    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-node": "^9.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "husky": "^3.0.0",
+    "mocha": "^6.1.4",
+    "node-fetch": "^2.6.0",
+    "nyc": "^14.1.1",
+    "prettier": "^1.18.2",
+    "sinon": "^7.3.2",
+    "sinon-chai": "^3.3.0",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.6"
+  }
+}
