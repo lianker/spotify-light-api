@@ -9,11 +9,11 @@
   <body>
     <div id="albums"></div>
 
-    <script src="../dist/spotify-wrapper.umd.min.js"></script>
+    <script src="../dist/spotify-light-api.umd.min.js"></script>
     <script>
-      const spotify = new SpotifyWrapper({
+      const spotify = new SpotifyLightApi({
         token:
-          'BQB0FpXd9zl0XnC0fYQW1G26eSCUQOXzCgu4VpWC_-0Gw3bvHGCSakC3Q9r0E73xvbZNbBFrCgYk1qy9qhbSlT568X00GOxeKBCKUDWvjVrJ577KQSMgUo_PvNhfQ3uWl6eLt0yqJ1cMrw'
+          'BQAQd9im5BNfoiMEiM_gHsFr997ysZ4I15QnHQLaBr7bKY4zi1n3tyzFBZAtrVi7rBYvQm6BH5QA5Fhxo7b2GQigtfz_UfuW4_RInq0iGSSDxhwSp5rEgwXFjz2B4sinAyg1bMqZBV___w'
       })
 
       const albums = spotify.search.albums('mr. big')

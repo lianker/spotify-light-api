@@ -2,31 +2,31 @@ import chai, { expect } from 'chai'
 import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
 
-import SpotifyWrapper from '../src/index'
+import SpotifyLightApi from '../src/index'
 
 global.fetch = require('node-fetch')
 chai.use(sinonChai)
 
-describe('SpotifyWrapper Library', () => {
-  it('Should create a instance of SpotifyWrapper', () => {
-    const spotify = new SpotifyWrapper({})
-    expect(spotify).to.be.an.instanceOf(SpotifyWrapper)
+describe('SpotifyLightApi Library', () => {
+  it('Should create a instance of SpotifyLightApi', () => {
+    const spotify = new SpotifyLightApi({})
+    expect(spotify).to.be.an.instanceOf(SpotifyLightApi)
   })
 
   it('Should receive apiURL as an option', () => {
-    const spotify = new SpotifyWrapper({ apiURL: 'http://spotify.com' })
+    const spotify = new SpotifyLightApi({ apiURL: 'http://spotify.com' })
 
     expect(spotify.apiURL).to.be.equal('http://spotify.com')
   })
 
   it('Should use the default apiURL if not provided', () => {
-    const spotify = new SpotifyWrapper({})
+    const spotify = new SpotifyLightApi({})
 
     expect(spotify.apiURL).to.be.equal('https://api.spotify.com/v1')
   })
 
   it('Should receive token as an option', () => {
-    const spotify = new SpotifyWrapper({ token: 'blabla' })
+    const spotify = new SpotifyLightApi({ token: 'blabla' })
 
     expect(spotify.token).to.be.equal('blabla')
   })
@@ -44,12 +44,12 @@ describe('SpotifyWrapper Library', () => {
     })
 
     it('Should exist request method', () => {
-      const spotify = new SpotifyWrapper({})
+      const spotify = new SpotifyLightApi({})
       expect(spotify.request).to.exist
     })
 
     it('Should call fetch when request', () => {
-      const spotify = new SpotifyWrapper({
+      const spotify = new SpotifyLightApi({
         token: 'bla'
       })
 
@@ -58,7 +58,7 @@ describe('SpotifyWrapper Library', () => {
     })
 
     it('Should call fetch correct URL', () => {
-      const spotify = new SpotifyWrapper({
+      const spotify = new SpotifyLightApi({
         token: 'bla'
       })
 
@@ -67,7 +67,7 @@ describe('SpotifyWrapper Library', () => {
     })
 
     it('Should call fetch correct headers', () => {
-      const spotify = new SpotifyWrapper({
+      const spotify = new SpotifyLightApi({
         token: 'bla'
       })
 

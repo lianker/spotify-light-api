@@ -2,7 +2,7 @@ import chai, { expect } from 'chai'
 import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
 
-import SpotifyWrapper from '../src/index'
+import SpotifyLightApi from '../src/index'
 
 //  enable fetch in node
 global.fetch = require('node-fetch')
@@ -13,7 +13,7 @@ chai.use(sinonChai)
 describe('Search - Smoke Tests', () => {
   let spotify
   beforeEach(() => {
-    spotify = new SpotifyWrapper(
+    spotify = new SpotifyLightApi(
       { token: 'bar' }
     )
   })
@@ -42,7 +42,7 @@ describe('Search', () => {
   beforeEach(() => {
     fetchedStub = sinon.stub(global, 'fetch')
     fetchedStub.resolves({ json: () => ({ body: 'json' }) })
-    spotify = new SpotifyWrapper(
+    spotify = new SpotifyLightApi(
       { token: 'bar' }
     )
   })

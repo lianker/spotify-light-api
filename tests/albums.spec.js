@@ -2,7 +2,7 @@ import chai, { expect } from 'chai'
 import sinon from 'sinon'
 import sinonChai from 'sinon-chai'
 
-import SpotifyWrapper from '../src/index'
+import SpotifyLightApi from '../src/index'
 
 // integrate sinon and chai and add promises stubs
 chai.use(sinonChai)
@@ -13,7 +13,7 @@ describe('Albums', () => {
   let stubedFetch
   let spotify
   beforeEach(() => {
-    spotify = new SpotifyWrapper({
+    spotify = new SpotifyLightApi({
       token: 'bar'
     })
     stubedFetch = sinon.stub(global, 'fetch')
