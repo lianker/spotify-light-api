@@ -1,7 +1,7 @@
 import { join } from 'path'
 
 export default {
-  entry: './index',
+  entry: './src/index',
   output: {
     path: join(__dirname, 'dist'),
     libraryTarget: 'umd',

@@ -1,6 +1,6 @@
 {
   "name": "spotify-light-api",
-  "version": "1.0.1",
+  "version": "1.0.0",
   "description": "a simple lib to wrapper spotify api",
   "main": "lib/index.js",
   "scripts": {
