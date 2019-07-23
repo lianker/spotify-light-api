@@ -1,9 +1,9 @@
 /* global fetch */
-import search from '../src/search'
+import search from './search'
 
 import albums from './albums'
 
-import { API_URL } from '../src/config'
+import { API_URL } from './config'
 import { toJSON } from './utils'
 
 export default class SpotifyLightApi {
